@@ -1,0 +1,94 @@
+<div class="container-fluid">
+  <div class="row">
+    <div class="col-12 col-md-3">
+      <!-- Aside Bar -->
+      <div class="aside-bar">
+        <!-- Add your aside bar content here -->
+        <div class="container">
+          <div class="row">
+            <div class="filterSection">
+              <h3>Filteration</h3>
+            </div>
+            <div class="col-12">
+              <form [formGroup]="form" (ngSubmit)="onSubmit()">
+                <div class="form-group mb-2">
+                  <label for="modelName">Model Name</label>
+                  <select
+                    class="form-control"
+                    id="modelName"
+                    formControlName="modelName"
+                  >
+                    <option *ngFor="let model of models">
+                      {{ model.name }}
+                    </option>
+                  </select>
+                </div>
+
+                <div class="form-group mb-2">
+                  <label for="brandName">Brand Name</label>
+                  <select
+                    class="form-control"
+                    id="brandName"
+                    formControlName="brandName"
+                  >
+                    <option *ngFor="let brand of brands">
+                      {{ brand.brand }}
+                    </option>
+                  </select>
+                </div>
+
+                <div class="form-group mb-4">
+                  <label for="modelYear">Model Year</label>
+                  <select
+                    class="form-control"
+                    id="modelYear"
+                    formControlName="modelYear"
+                  >
+                    <option *ngFor="let year of modelYears">
+                      {{ year.modelYears }}
+                    </option>
+                  </select>
+                </div>
+                <div class="form-group text-center mb-4">
+                  <button type="submit" class="btn filterSection">Apply</button>
+                </div>
+                <div class="form-group text-center">
+                  <button
+                    type="submit"
+                    class="btn filterSection"
+                    (click)="ResetFilters()"
+                  >
+                    Reset
+                  </button>
+                </div>
+              </form>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="col-12 col-md-9">
+      <!-- Car Cards -->
+      <div class="row">
+        <div class="col-12 col-md-6 mb-5" *ngFor="let car of cars">
+          <div class="card">
+            <img
+              src="../../../assets/{{ car.counter }}.jpg"
+              class="card-img-top"
+            />
+            <div class="card-body">
+              <h5 class="card-title">
+                Model Name:
+                <a routerLink="/car/details/{{ car.id }}">{{
+                  car.modelName
+                }}</a>
+              </h5>
+              <h5 class="card-title">Model Type: {{ car.modelType }}</h5>
+              <h5 class="card-title">Brand Name: {{ car.brandName }}</h5>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

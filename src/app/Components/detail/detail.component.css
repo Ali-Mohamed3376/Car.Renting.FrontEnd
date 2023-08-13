@@ -1,0 +1,16 @@
+.childForm {
+  font-size: large;
+  font-weight: 600;
+  margin-bottom: 10px;
+}
+
+.btns {
+  display: flex;
+  justify-content: space-between;
+}
+
+.btns a {
+  text-decoration: none;
+  font-size: large;
+  font-weight: 600;
+}

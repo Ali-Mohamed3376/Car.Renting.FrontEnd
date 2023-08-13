@@ -1,0 +1,12 @@
+.master {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  /* align-items: center; */
+}
+
+.masterForm label {
+  font-size: large;
+  font-weight: 600;
+  margin-bottom: 10px;
+}

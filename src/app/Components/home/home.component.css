@@ -1,0 +1,23 @@
+/* .container {
+  margin-left: 0;
+  margin-right: 0;
+}
+.row {
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+} */
+
+.filterSection {
+  text-align: center;
+  color: white;
+  background-color: rgb(5, 83, 83);
+  font-size: larger;
+  font-weight: 600;
+  margin-bottom: 10px;
+}
+
+label {
+  font-weight: 700;
+  font-size: large;
+}

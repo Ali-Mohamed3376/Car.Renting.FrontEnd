@@ -1,0 +1,89 @@
+<!-- Car Details Data (Child Component) -->
+<div>
+  <form [formGroup]="form" class="childForm text-start">
+    <div class="form-group mb-3">
+      <label for="carName">Car Name</label>
+      <select
+        class="form-control"
+        id="carName"
+        formControlName="carName"
+        (change)="sendId($event.target)"
+        [(ngModel)]="selectedCar"
+      >
+        <option *ngFor="let model of models" [ngValue]="model">
+          {{ model.name }}
+        </option>
+      </select>
+      <div
+        *ngIf="
+          form.get('carName')?.invalid &&
+          (form.get('carName')?.touched || form.get('carName')?.dirty)
+        "
+      >
+        <div
+          *ngIf="form.get('carName')?.hasError('required')"
+          class="text-danger"
+        >
+          Car Name is Required.
+        </div>
+      </div>
+    </div>
+    <div class="form-group mb-3">
+      <label for="quantityOfCars">Quantity of Cars</label>
+      <input
+        type="number"
+        class="form-control"
+        id="quantityOfCars"
+        formControlName="quantityOfCars"
+      />
+      <div
+        *ngIf="
+          form.get('quantityOfCars')?.invalid &&
+          (form.get('quantityOfCars')?.touched ||
+            form.get('quantityOfCars')?.dirty)
+        "
+      >
+        <div
+          *ngIf="form.get('quantityOfCars')?.hasError('required')"
+          class="text-danger"
+        >
+          Quantity of Cars is Required.
+        </div>
+      </div>
+    </div>
+    <div class="form-group mb-3">
+      <label for="rentDuration">Rent Duration</label>
+      <input
+        type="date"
+        class="form-control"
+        id="rentDuration"
+        formControlName="rentDuration"
+      />
+      <div
+        *ngIf="
+          form.get('rentDuration')?.invalid &&
+          (form.get('rentDuration')?.touched || form.get('rentDuration')?.dirty)
+        "
+      >
+        <div
+          *ngIf="form.get('rentDuration')?.hasError('required')"
+          class="text-danger"
+        >
+          RentDuration is Required.
+        </div>
+      </div>
+    </div>
+    <div class="btns text-center">
+      <button
+        [disabled]="!form.valid"
+        type="button"
+        class="btn btn-primary"
+        id="addCar"
+        style="background-color: rgb(17, 99, 99)"
+        (click)="SendDataToMaster()"
+      >
+        Add Car
+      </button>
+    </div>
+  </form>
+</div>
